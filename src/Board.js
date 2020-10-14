@@ -62,7 +62,7 @@
     },
 
 
-/*
+    /*
          _             _     _
      ___| |_ __ _ _ __| |_  | |__   ___ _ __ ___ _
     / __| __/ _` | '__| __| | '_ \ / _ \ '__/ _ (_)
@@ -78,7 +78,38 @@
     // --------------------------------------------------------------
     //
     // test if a specific row on this board contains a conflict
+    // in: number
+    // out: boolean
+    // how do i make a board?
+    // how can i access its spaces?
+    // add row values if greater than 1 there is a conflict
+    // <yourVar>.attributtes[0];
+    // typechecking numbers to strings for keys
+    // if no documentation, treat tests as the docs
+    // UNDERSTAND THE CODE BASE FIRST
+    // OUR FIRST IMPULSE IS TO JUST TRY TO CODE OUT WHAT WE THINK IT SHOULD DO ONCE WE HAVE INPUTS AND OUTPUTS
+    // misleading for them to say "START HERE", it should read "start here once you understand the code base first"
+    // this.get/set (???)
+    // JS Maps another implementation of hash tables
+    // maps have keys that can be anything, hash tables only strings
+    // console.log(this instanceof Board);
+    // awwapp.com for whiteboarding (just 'aww'?
+
     hasRowConflictAt: function(rowIndex) {
+
+      var pieces = 0;
+
+      for (var i = 0; i < rowIndex.length; i++) {
+        pieces += rowIndex[i];
+      }
+
+      if (pieces > 1) {
+        return true;
+      }
+
+      console.log('\n');
+      console.log('rowIndex: ', rowIndex);
+      console.log(this);
       return false; // fixme
     },
 
