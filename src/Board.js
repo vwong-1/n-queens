@@ -77,9 +77,7 @@
     // ROWS - run from left to right
     // --------------------------------------------------------------
     //
-    // test if a specific row on this board contains a conflict
-    // in: number
-    // out: boolean
+
     // how do i make a board?
     // how can i access its spaces?
     // add row values if greater than 1 there is a conflict
@@ -94,30 +92,45 @@
     // maps have keys that can be anything, hash tables only strings
     // console.log(this instanceof Board);
     // awwapp.com for whiteboarding (just 'aww'?
+    // n = this.params.length
+    // boards are made up of n arrays with n length
 
+
+    // test if a specific row on this board contains a conflict
+    // in: number, index of row
+    // out: boolean
     hasRowConflictAt: function(rowIndex) {
-
+      // need to store a count of pieces
       var pieces = 0;
+      var row = this.get(rowIndex);
 
-      for (var i = 0; i < rowIndex.length; i++) {
-        pieces += rowIndex[i];
+      // need a way to reference our row at given index
+      // iterate through row
+      for (let i = 0; i < row.length; i ++) {
+        pieces += row[i];
+        // if there's more than 1 piece, is true
+        if (pieces > 1) {
+          return true;
+        }
       }
-
-      if (pieces > 1) {
-        return true;
-      }
-
-      console.log('\n');
-      console.log('rowIndex: ', rowIndex);
-      console.log(this);
-      return false; // fixme
+      return false;
     },
 
     // test if any rows on this board contain conflicts
     hasAnyRowConflicts: function() {
-      return false; // fixme
-    },
+      // find n
+      var size = this.get('n');
 
+      // iterate 'down' the board
+      for (let i = 0; i < size; i++) {
+        if (this.hasRowConflictAt(i)) {
+          return true;
+        }
+      }
+      return false;
+    },
+    // object of arrays
+    // for in loop? no, bc class/instance
 
 
     // COLUMNS - run from top to bottom
@@ -125,12 +138,32 @@
     //
     // test if a specific column on this board contains a conflict
     hasColConflictAt: function(colIndex) {
-      return false; // fixme
+
+      var pieces = 0;
+      // get 'n'
+      var size = this.get('n');
+
+      for (let i = 0; i < size; i++) {
+        pieces += this.get(i)[colIndex];
+        if (pieces > 1) {
+          return true;
+        }
+      }
+      return false;
     },
 
     // test if any columns on this board contain conflicts
     hasAnyColConflicts: function() {
-      return false; // fixme
+      // find n
+      var size = this.get('n');
+
+      // iterate 'down' the board
+      for (let i = 0; i < size; i++) {
+        if (this.hasColConflictAt(i)) {
+          return true;
+        }
+      }
+      return false;
     },
 
 
