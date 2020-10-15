@@ -191,6 +191,10 @@
       }
 
       for (let i = 0; i < size; i++) {
+        if (row + i > size - 1 || col + i > size - 1) {
+          break;
+        }
+
         pieces += this.get(row + i)[col + i];
         if (pieces > 1) {
           return true;
@@ -199,10 +203,22 @@
 
       return false;
     },
+    // if diag !== 0, we iterate off the board to undefined row/col. account for?
 
     // test if any major diagonals on this board contain conflicts
     hasAnyMajorDiagonalConflicts: function() {
-      return false; // fixme
+
+      var size = this.get('n');
+      // find start diag index
+      var start = -size + 2;
+
+      // iterate across major diagonals
+      for (let i = start; i < size - 1; i++) {
+        if (this.hasMajorDiagonalConflictAt(i)) {
+          return true;
+        }
+      }
+      return false;
     },
 
 
