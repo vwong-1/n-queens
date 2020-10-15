@@ -172,8 +172,32 @@
     // --------------------------------------------------------------
     //
     // test if a specific major diagonal on this board contains a conflict
+
+    // input: diagonal index
+    // output: boolean, true if conflict
     hasMajorDiagonalConflictAt: function(majorDiagonalColumnIndexAtFirstRow) {
-      return false; // fixme
+      var diag = majorDiagonalColumnIndexAtFirstRow;
+
+      // initialize variables
+      var row = 0;
+      var col = 0;
+      var pieces = 0;
+      var size = this.get('n');
+
+      if (diag < 0) {
+        row += Math.abs(diag);
+      } else {
+        col += diag;
+      }
+
+      for (let i = 0; i < size; i++) {
+        pieces += this.get(row + i)[col + i];
+        if (pieces > 1) {
+          return true;
+        }
+      }
+
+      return false;
     },
 
     // test if any major diagonals on this board contain conflicts
