@@ -78,23 +78,6 @@
     // --------------------------------------------------------------
     //
 
-    // how do i make a board?
-    // how can i access its spaces?
-    // add row values if greater than 1 there is a conflict
-    // <yourVar>.attributtes[0];
-    // typechecking numbers to strings for keys
-    // if no documentation, treat tests as the docs
-    // UNDERSTAND THE CODE BASE FIRST
-    // OUR FIRST IMPULSE IS TO JUST TRY TO CODE OUT WHAT WE THINK IT SHOULD DO ONCE WE HAVE INPUTS AND OUTPUTS
-    // misleading for them to say "START HERE", it should read "start here once you understand the code base first"
-    // this.get/set (???)
-    // JS Maps another implementation of hash tables
-    // maps have keys that can be anything, hash tables only strings
-    // console.log(this instanceof Board);
-    // awwapp.com for whiteboarding (just 'aww'?
-    // n = this.params.length
-    // boards are made up of n arrays with n length
-
 
     // test if a specific row on this board contains a conflict
     // in: number, index of row
@@ -116,6 +99,7 @@
       return false;
     },
 
+
     // test if any rows on this board contain conflicts
     hasAnyRowConflicts: function() {
       // find n
@@ -129,8 +113,7 @@
       }
       return false;
     },
-    // object of arrays
-    // for in loop? no, bc class/instance
+
 
 
     // COLUMNS - run from top to bottom
@@ -203,7 +186,7 @@
 
       return false;
     },
-    // if diag !== 0, we iterate off the board to undefined row/col. account for?
+
 
     // test if any major diagonals on this board contain conflicts
     hasAnyMajorDiagonalConflicts: function() {
